@@ -25,24 +25,17 @@ public class JwtUtil {
 //	Validate Token
 	public boolean validateToken(String Token) {
 		try {
-			Jwts.parser()
-			.verifyWith(SECRET_KEY)
-			.build()
-			.parseSignedClaims(Token);
+			Jwts.parser().verifyWith(SECRET_KEY).build().parseSignedClaims(Token);
 			return true;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}
-	
+
 //	Extracts Username from Token
-	
+
 	public String extractUsername(String Token) {
-		Claims claims = Jwts.parser()
-				.verifyWith(SECRET_KEY)
-				.build()
-				.parseSignedClaims(Token)
-				.getPayload();
+		Claims claims = Jwts.parser().verifyWith(SECRET_KEY).build().parseSignedClaims(Token).getPayload();
 		return claims.getSubject();
 	}
 }

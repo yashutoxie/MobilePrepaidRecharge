@@ -46,18 +46,17 @@ public class RechargeService {
 		return "Recharge Successful";
 
 	}
-	
+
 	private void sendConfirmationEmail(String to, RechargePlan plan) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(to);
 		message.setSubject("Recharge Confirmation");
-		message.setText("You have successfully recharged with plan: " + plan.getName()
-	                + " | Price: ₹" + plan.getPrice()
-	                + " | Validity: " + plan.getValidityInDays() + " days");
+		message.setText("You have successfully recharged with plan: " + plan.getName() + " | Price: ₹" + plan.getPrice()
+				+ " | Validity: " + plan.getValidityInDays() + " days");
 		mailSender.send(message);
 	}
-	
-	public List<RechargeHistory> getUserHistory(Long userId){
+
+	public List<RechargeHistory> getUserHistory(Long userId) {
 		return historyRepo.findByUserId(userId);
 	}
 

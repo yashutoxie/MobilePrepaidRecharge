@@ -9,4 +9,5 @@ import com.project.MobilePrepaidService.Entity.User;
 public interface UserRepo extends JpaRepository<User, Long> {
 	Optional<User> findByMobile(String mobile);
 	Optional<User> findByEmail(String email);
+	boolean existsByEmail(String email);
 }

@@ -23,3 +23,4 @@ public class RechargePlan {
 	private int validityInDays; 
 
 }
+
